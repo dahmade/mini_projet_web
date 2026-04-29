@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours - LogicMaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+    <nav class="bg-slate-900 text-white p-4 shadow-md sticky top-0">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-wider">Logic<span class="text-blue-500">Master</span></h1>
+            <div class="space-x-6">
+                <a href="index.html" class="hover:text-blue-400 font-medium transition-colors">Accueil</a>
+                <a href="quiz.html" class="hover:text-blue-400 font-medium transition-colors">Quiz</a>
+                <a href="contact.html" class="hover:text-blue-400 font-medium transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-10 px-4 max-w-4xl mb-20">
+        <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 border-t-4 border-blue-600">
+            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-slate-100 pb-4">
+                Cours : Bases de la Logique et Algorithmique
+            </h2>
+
+            <section class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-600 mb-4 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">1</span>
+                    La Mémoire et les Variables
+                </h3>
+                <p class="mb-4 leading-relaxed text-slate-600">
+                    En programmation, il est crucial de visualiser la mémoire (Heap et Stack). Une variable est un espace alloué dans la RAM dont la valeur peut être modifiée. Une constante (const) est immuable une fois son adresse mémoire assignée.
+                </p>
+                <div class="bg-slate-800 text-slate-300 p-4 rounded-lg font-mono text-sm shadow-inner">
+                    <span class="text-pink-400">let</span> score = <span class="text-yellow-300">0</span>; <span class="text-slate-500">// Variable stockée dans le Stack</span><br>
+                    <span class="text-pink-400">const</span> PI = <span class="text-yellow-300">3.14159</span>; <span class="text-slate-500">// Valeur constante</span>
+                </div>
+            </section>
+
+            <section class="mb-12">
+                <h3 class="text-2xl font-semibold text-blue-600 mb-4 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">2</span>
+                    Les Structures Itératives (Boucles)
+                </h3>
+                <p class="mb-4 leading-relaxed text-slate-600">
+                    Les boucles automatisent les tâches répétitives. Il est important de gérer les conditions d'arrêt (Edge-Cases) pour éviter les boucles infinies qui saturent le processeur.
+                </p>
+                <ul class="list-none space-y-3 ml-2 text-slate-700">
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">▸</span>
+                        <div><strong>La boucle for :</strong> Idéale quand le nombre d'itérations est connu à l'avance.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">▸</span>
+                        <div><strong>La boucle while :</strong> S'exécute tant que la pré-condition (Input rule) est vraie.</div>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-2">▸</span>
+                        <div><strong>La boucle do...while :</strong> S'exécute toujours au moins une fois avant d'évaluer la condition.</div>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h3 class="text-2xl font-semibold text-blue-600 mb-4 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">3</span>
+                    Loi de Pareto (80/20) en Code
+                </h3>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 text-slate-700 italic">
+                    "80% des bugs d'un programme proviennent de 20% du code (généralement la logique de base). Pensez toujours État (State) et Action avant la Syntaxe."
+                </div>
+            </section>
+        </div>
+    </main>
+
+</body>
+</html>
