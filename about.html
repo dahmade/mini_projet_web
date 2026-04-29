@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - LogicMaster</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 font-sans text-slate-800">
+
+    <nav class="bg-slate-900 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-wider">Logic<span class="text-blue-500">Master</span></h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="hover:text-blue-400 transition-all">Accueil</a>
+                <a href="cours.html" class="hover:text-blue-400 transition-all">Cours</a>
+                <a href="quiz.html" class="hover:text-blue-400 transition-all">Quiz</a>
+                <a href="contact.html" class="hover:text-blue-400 transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto mt-12 px-4 max-w-4xl">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-blue-600 p-8 text-white text-center">
+                <h2 class="text-3xl font-bold mb-2">À Propos du Projet</h2>
+                <p class="opacity-90 italic">S2 - Informatique Appliquée</p>
+            </div>
+
+            <div class="p-8 md:p-12 space-y-10">
+                <section>
+                    <h3 class="text-xl font-bold text-slate-900 mb-4 flex items-center">
+                        <span class="w-2 h-8 bg-blue-500 mr-3 rounded-full"></span>
+                        Objectif du Projet
+                    </h3>
+                    <p class="leading-relaxed text-slate-600">
+                        LogicMaster est une plateforme éducative conçue pour aider les étudiants de la <strong>FSSM</strong> à maîtriser les bases de l'algorithmique et du développement Web. Ce mini-projet combine HTML5, CSS3 (via Tailwind) et JavaScript pur (Vanilla JS) pour offrir une expérience interactive.
+                    </p>
+                </section>
+
+                <section class="grid md:grid-cols-3 gap-6">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                        <div class="text-blue-600 font-bold mb-1 uppercase text-xs">Structure</div>
+                        <div class="font-bold text-slate-800">HTML5 Semantic</div>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                        <div class="text-blue-600 font-bold mb-1 uppercase text-xs">Design</div>
+                        <div class="font-bold text-slate-800">Tailwind CSS</div>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                        <div class="text-blue-600 font-bold mb-1 uppercase text-xs">Moteur</div>
+                        <div class="font-bold text-slate-800">Vanilla JavaScript</div>
+                    </div>
+                </section>
+
+                <section class="pt-8 border-t border-slate-100">
+                    <h3 class="text-xl font-bold text-slate-900 mb-6">L'Équipe</h3>
+                    <div class="flex items-center space-x-6">
+                        <div class="w-20 h-20 bg-slate-200 rounded-full flex items-center justify-center text-slate-500">
+                            <svg class="w-12 h-12" fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold">Développé par Ahmed Balouch</h4>
+                            <p class="text-blue-600 font-medium">Faculté des Sciences Semlalia, Marrakech</p>
+                            <p class="text-slate-500 text-sm mt-1 italic">"Logic before Syntax. Code is the last step."</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="text-center py-10 text-slate-400 text-sm">
+        &copy; 2026 LogicMaster Project - FSSM
+    </footer>
+
+</body>
+</html>
