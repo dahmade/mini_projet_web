@@ -1,4 +1,4 @@
-🎓 RAPPORT DE PROJET : ARCHITECTURE D'UNE APPLICATION QUIZ
+RAPPORT DE PROJET : ARCHITECTURE D'UNE APPLICATION QUIZ
 Étudiant : Ahmed Balouch
 Établissement : FSSM - Informatique Appliquée (S2)
 
