@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Algorithmique - LogicMaster</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/tailwind.js"></script>
 </head>
 <body class="bg-slate-100 min-h-screen font-sans">
 
@@ -17,7 +17,11 @@
 
     <main class="container mx-auto mt-10 max-w-3xl px-4">
         <div class="bg-white rounded-2xl shadow-xl p-8">
-            
+
+            <div id="timer-display" class="text-xl font-mono font-bold text-red-500 bg-red-50 px-4 py-2 rounded-lg border border-red-200">
+                02:00
+            </div><br>
+
             <div class="w-full bg-slate-200 h-2 rounded-full mb-8">
                 <div id="progress" class="bg-blue-600 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
             </div>

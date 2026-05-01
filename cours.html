@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cours - LogicMaster</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./js/tailwind.js"></script>
 </head>
 <body class="bg-slate-50 font-sans text-slate-800">
 
-    <nav class="bg-slate-900 text-white p-4 shadow-md sticky top-0">
+    <nav class="bg-slate-900 text-white p-4 shadow-md sticky top-0 z-10">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold tracking-wider">Logic<span class="text-blue-500">Master</span></h1>
             <div class="space-x-6">
@@ -22,59 +22,256 @@
 
     <main class="container mx-auto mt-10 px-4 max-w-4xl mb-20">
         <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 border-t-4 border-blue-600">
-            <h2 class="text-3xl font-bold text-slate-900 mb-8 border-b-2 border-slate-100 pb-4">
+            <h2 class="text-3xl font-bold text-slate-900 mb-2">
                 Cours : Bases de la Logique et Algorithmique
             </h2>
+            <p class="text-slate-500 mb-10 pb-6 border-b-2 border-slate-100">
+                Maîtrisez les 20% du contenu qui couvrent 80% des questions d'examen.
+            </p>
 
-            <section class="mb-12">
-                <h3 class="text-2xl font-semibold text-blue-600 mb-4 flex items-center">
-                    <span class="bg-blue-100 text-blue-800 rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">1</span>
-                    La Mémoire et les Variables
+            <!-- ================================ -->
+            <!-- SECTION 1 : Variables & Types   -->
+            <!-- ================================ -->
+            <section class="mb-14">
+                <h3 class="text-2xl font-semibold text-blue-600 mb-5 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-9 h-9 inline-flex items-center justify-center mr-3 text-sm font-bold">1</span>
+                    Variables, Types & Mémoire
                 </h3>
                 <p class="mb-4 leading-relaxed text-slate-600">
-                    En programmation, il est crucial de visualiser la mémoire (Heap et Stack). Une variable est un espace alloué dans la RAM dont la valeur peut être modifiée. Une constante (const) est immuable une fois son adresse mémoire assignée.
+                    Une <strong>variable</strong> est un espace nommé en mémoire (RAM) qui stocke une valeur modifiable. Une <strong>constante</strong> (<code class="bg-slate-100 px-1 rounded">const</code>) est liée à une adresse mémoire dont la valeur ne peut pas être réassignée après initialisation.
                 </p>
-                <div class="bg-slate-800 text-slate-300 p-4 rounded-lg font-mono text-sm shadow-inner">
-                    <span class="text-pink-400">let</span> score = <span class="text-yellow-300">0</span>; <span class="text-slate-500">// Variable stockée dans le Stack</span><br>
-                    <span class="text-pink-400">const</span> PI = <span class="text-yellow-300">3.14159</span>; <span class="text-slate-500">// Valeur constante</span>
+                <p class="mb-4 leading-relaxed text-slate-600">
+                    En JavaScript, il existe 3 mots-clés de déclaration :
+                </p>
+                <ul class="list-none space-y-2 mb-5 ml-2 text-slate-700">
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">▸</span><div><strong>var</strong> : ancien, portée globale/fonction, à éviter.</div></li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">▸</span><div><strong>let</strong> : moderne, portée de bloc (<code class="bg-slate-100 px-1 rounded">{}</code>), valeur modifiable.</div></li>
+                    <li class="flex items-start"><span class="text-blue-500 mr-2 mt-1">▸</span><div><strong>const</strong> : portée de bloc, valeur <strong>immuable</strong> (ne peut pas être réassignée).</div></li>
+                </ul>
+                <div class="bg-slate-800 text-slate-300 p-5 rounded-lg font-mono text-sm shadow-inner leading-relaxed">
+                    <span class="text-pink-400">let</span> score = <span class="text-yellow-300">0</span>;       <span class="text-slate-500">// Stack : modifiable</span><br>
+                    <span class="text-pink-400">const</span> PI = <span class="text-yellow-300">3.14159</span>;    <span class="text-slate-500">// Stack : immuable</span><br>
+                    score = <span class="text-yellow-300">10</span>;              <span class="text-slate-500">// ✅ OK</span><br>
+                    <span class="text-slate-500">// PI = 3;             ❌ TypeError : Assignment to constant variable.</span>
+                </div>
+
+                <!-- Coercition de type -->
+                <div class="mt-7">
+                    <h4 class="text-lg font-bold text-slate-800 mb-3">1.1 — Coercition de Type (Type Coercion)</h4>
+                    <p class="mb-4 leading-relaxed text-slate-600">
+                        JavaScript est un langage à <strong>typage dynamique</strong>. Il peut convertir automatiquement les types — c'est la <em>coercition</em>. L'opérateur <code class="bg-slate-100 px-1 rounded">+</code> avec une chaîne de caractères fait de la <strong>concaténation</strong>, pas une addition.
+                    </p>
+                    <div class="bg-slate-800 text-slate-300 p-5 rounded-lg font-mono text-sm shadow-inner leading-relaxed">
+                        <span class="text-yellow-300">5</span> + <span class="text-green-400">'5'</span>   <span class="text-slate-500">// → '55'  (number converti en string)</span><br>
+                        <span class="text-yellow-300">5</span> - <span class="text-green-400">'3'</span>   <span class="text-slate-500">// → 2     (string converti en number)</span><br>
+                        <span class="text-pink-400">typeof</span> <span class="text-yellow-300">42</span>    <span class="text-slate-500">// → 'number'</span><br>
+                        <span class="text-pink-400">typeof</span> <span class="text-green-400">'hello'</span><span class="text-slate-500">// → 'string'</span><br>
+                        <span class="text-pink-400">typeof</span> <span class="text-blue-400">true</span>   <span class="text-slate-500">// → 'boolean'</span>
+                    </div>
+                </div>
+
+                <!-- == vs === -->
+                <div class="mt-7">
+                    <h4 class="text-lg font-bold text-slate-800 mb-3">1.2 — Égalité Stricte vs Abstraite (=== vs ==)</h4>
+                    <p class="mb-4 leading-relaxed text-slate-600">
+                        C'est l'un des pièges les plus classiques en JavaScript. La règle est simple : <strong>utilisez toujours <code class="bg-slate-100 px-1 rounded">===</code></strong>.
+                    </p>
+                    <div class="bg-slate-800 text-slate-300 p-5 rounded-lg font-mono text-sm shadow-inner leading-relaxed">
+                        <span class="text-slate-500">// == (égalité abstraite) : compare SEULEMENT la valeur, ignore le type</span><br>
+                        <span class="text-yellow-300">5</span> == <span class="text-green-400">'5'</span>    <span class="text-slate-500">// → true  ⚠️ DANGEREUX</span><br><br>
+                        <span class="text-slate-500">// === (égalité stricte) : compare la valeur ET le type</span><br>
+                        <span class="text-yellow-300">5</span> === <span class="text-green-400">'5'</span>   <span class="text-slate-500">// → false ✅ CORRECT</span><br>
+                        <span class="text-yellow-300">5</span> === <span class="text-yellow-300">5</span>    <span class="text-slate-500">// → true  ✅ CORRECT</span>
+                    </div>
                 </div>
             </section>
 
-            <section class="mb-12">
-                <h3 class="text-2xl font-semibold text-blue-600 mb-4 flex items-center">
-                    <span class="bg-blue-100 text-blue-800 rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">2</span>
-                    Les Structures Itératives (Boucles)
+            <!-- =============================== -->
+            <!-- SECTION 2 : Conditions          -->
+            <!-- =============================== -->
+            <section class="mb-14">
+                <h3 class="text-2xl font-semibold text-blue-600 mb-5 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-9 h-9 inline-flex items-center justify-center mr-3 text-sm font-bold">2</span>
+                    Structures Conditionnelles (if / else if / else)
                 </h3>
                 <p class="mb-4 leading-relaxed text-slate-600">
-                    Les boucles automatisent les tâches répétitives. Il est important de gérer les conditions d'arrêt (Edge-Cases) pour éviter les boucles infinies qui saturent le processeur.
+                    Une condition évalue une expression booléenne (<strong>vrai</strong> ou <strong>faux</strong>) pour décider quelle branche du code exécuter. La logique est : <em>"Si... alors... sinon si... sinon..."</em>
                 </p>
-                <ul class="list-none space-y-3 ml-2 text-slate-700">
+                <div class="bg-slate-800 text-slate-300 p-5 rounded-lg font-mono text-sm shadow-inner leading-relaxed mb-5">
+                    <span class="text-pink-400">let</span> note = <span class="text-yellow-300">14</span>;<br><br>
+                    <span class="text-blue-400">if</span> (note >= <span class="text-yellow-300">16</span>) {<br>
+                    &nbsp;&nbsp;console.<span class="text-green-400">log</span>(<span class="text-green-400">"Très Bien"</span>);<br>
+                    } <span class="text-blue-400">else if</span> (note >= <span class="text-yellow-300">12</span>) {<br>
+                    &nbsp;&nbsp;console.<span class="text-green-400">log</span>(<span class="text-green-400">"Assez Bien"</span>); <span class="text-slate-500">// ← cette branche s'exécute</span><br>
+                    } <span class="text-blue-400">else</span> {<br>
+                    &nbsp;&nbsp;console.<span class="text-green-400">log</span>(<span class="text-green-400">"Insuffisant"</span>);<br>
+                    }
+                </div>
+
+                <!-- Valeurs Falsy -->
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                    <p class="font-bold text-amber-800 mb-2">⚠️ Edge-Case : Valeurs "Falsy" en JavaScript</p>
+                    <p class="text-amber-700 text-sm leading-relaxed">
+                        Ces valeurs sont automatiquement évaluées comme <code class="bg-amber-100 px-1 rounded">false</code> dans un <code class="bg-amber-100 px-1 rounded">if</code> : <strong>0</strong>, <strong>""</strong> (chaîne vide), <strong>null</strong>, <strong>undefined</strong>, <strong>NaN</strong>, et <strong>false</strong> lui-même. Tout le reste est "truthy".
+                    </p>
+                    <div class="bg-slate-800 text-slate-300 p-3 rounded-lg font-mono text-xs mt-3">
+                        <span class="text-blue-400">if</span> (<span class="text-yellow-300">0</span>) { ... }        <span class="text-slate-500">// ❌ Ne s'exécute PAS</span><br>
+                        <span class="text-blue-400">if</span> (<span class="text-green-400">""</span>) { ... }       <span class="text-slate-500">// ❌ Ne s'exécute PAS</span><br>
+                        <span class="text-blue-400">if</span> (<span class="text-yellow-300">1</span>) { ... }        <span class="text-slate-500">// ✅ S'exécute</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- =============================== -->
+            <!-- SECTION 3 : Boucles            -->
+            <!-- =============================== -->
+            <section class="mb-14">
+                <h3 class="text-2xl font-semibold text-blue-600 mb-5 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-9 h-9 inline-flex items-center justify-center mr-3 text-sm font-bold">3</span>
+                    Structures Itératives (Boucles)
+                </h3>
+                <p class="mb-5 leading-relaxed text-slate-600">
+                    Les boucles automatisent les tâches répétitives. Il est crucial de gérer les <strong>conditions d'arrêt</strong> pour éviter les boucles infinies qui saturent le CPU.
+                </p>
+                <ul class="list-none space-y-4 ml-2 text-slate-700 mb-6">
                     <li class="flex items-start">
-                        <span class="text-blue-500 mr-2">▸</span>
-                        <div><strong>La boucle for :</strong> Idéale quand le nombre d'itérations est connu à l'avance.</div>
+                        <span class="text-blue-500 mr-2 mt-1">▸</span>
+                        <div><strong>for :</strong> Idéale quand le nombre d'itérations est <em>connu à l'avance</em>.</div>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-blue-500 mr-2">▸</span>
-                        <div><strong>La boucle while :</strong> S'exécute tant que la pré-condition (Input rule) est vraie.</div>
+                        <span class="text-blue-500 mr-2 mt-1">▸</span>
+                        <div><strong>while :</strong> S'exécute tant que la condition est vraie. La condition est évaluée <em>avant</em> chaque itération.</div>
                     </li>
                     <li class="flex items-start">
-                        <span class="text-blue-500 mr-2">▸</span>
-                        <div><strong>La boucle do...while :</strong> S'exécute toujours au moins une fois avant d'évaluer la condition.</div>
+                        <span class="text-blue-500 mr-2 mt-1">▸</span>
+                        <div><strong>do...while :</strong> S'exécute <em>toujours au moins une fois</em>, la condition est évaluée <em>après</em> l'exécution du bloc.</div>
                     </li>
                 </ul>
-            </section>
+                <div class="bg-slate-800 text-slate-300 p-5 rounded-lg font-mono text-sm shadow-inner leading-relaxed">
+                    <span class="text-slate-500">// do...while : le bloc s'exécute UNE FOIS même si la condition est fausse</span><br>
+                    <span class="text-pink-400">let</span> i = <span class="text-yellow-300">100</span>;<br>
+                    <span class="text-blue-400">do</span> {<br>
+                    &nbsp;&nbsp;console.<span class="text-green-400">log</span>(<span class="text-green-400">"Exécuté !"</span>); <span class="text-slate-500">// ← s'affiche malgré i > 5</span><br>
+                    } <span class="text-blue-400">while</span> (i < <span class="text-yellow-300">5</span>);
+                </div>
 
-            <section>
-                <h3 class="text-2xl font-semibold text-blue-600 mb-4 flex items-center">
-                    <span class="bg-blue-100 text-blue-800 rounded-full w-8 h-8 inline-flex items-center justify-center mr-3 text-sm">3</span>
-                    Loi de Pareto (80/20) en Code
-                </h3>
-                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 text-slate-700 italic">
-                    "80% des bugs d'un programme proviennent de 20% du code (généralement la logique de base). Pensez toujours État (State) et Action avant la Syntaxe."
+                <!-- break / continue -->
+                <div class="mt-7">
+                    <h4 class="text-lg font-bold text-slate-800 mb-3">3.1 — Contrôle de Boucle : break & continue</h4>
+                    <p class="mb-4 leading-relaxed text-slate-600">
+                        <code class="bg-slate-100 px-1 rounded">break</code> <strong>termine immédiatement</strong> la boucle. <code class="bg-slate-100 px-1 rounded">continue</code> saute l'itération actuelle et passe à la suivante.
+                    </p>
+                    <div class="bg-slate-800 text-slate-300 p-5 rounded-lg font-mono text-sm shadow-inner leading-relaxed">
+                        <span class="text-blue-400">for</span> (<span class="text-pink-400">let</span> i = <span class="text-yellow-300">0</span>; i < <span class="text-yellow-300">10</span>; i++) {<br>
+                        &nbsp;&nbsp;<span class="text-blue-400">if</span> (i === <span class="text-yellow-300">3</span>) <span class="text-blue-400">continue</span>; <span class="text-slate-500">// saute i=3</span><br>
+                        &nbsp;&nbsp;<span class="text-blue-400">if</span> (i === <span class="text-yellow-300">7</span>) <span class="text-blue-400">break</span>;   <span class="text-slate-500">// arrête la boucle à i=7</span><br>
+                        &nbsp;&nbsp;console.<span class="text-green-400">log</span>(i); <span class="text-slate-500">// affiche 0,1,2,4,5,6</span><br>
+                        }
+                    </div>
                 </div>
             </section>
+
+            <!-- =============================== -->
+            <!-- SECTION 4 : Fonctions           -->
+            <!-- =============================== -->
+            <section class="mb-14">
+                <h3 class="text-2xl font-semibold text-blue-600 mb-5 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-9 h-9 inline-flex items-center justify-center mr-3 text-sm font-bold">4</span>
+                    Fonctions
+                </h3>
+                <p class="mb-4 leading-relaxed text-slate-600">
+                    Une <strong>fonction</strong> est un bloc de code nommé et réutilisable qui accomplit une tâche précise. C'est le principe fondamental de la <em>modularité</em> : au lieu de répéter du code, on le met dans une fonction qu'on appelle autant de fois que nécessaire.
+                </p>
+                <p class="mb-4 leading-relaxed text-slate-600">
+                    Trois syntaxes existent en JavaScript :
+                </p>
+                <div class="bg-slate-800 text-slate-300 p-5 rounded-lg font-mono text-sm shadow-inner leading-relaxed mb-5">
+                    <span class="text-slate-500">// 1. Déclaration classique (function declaration)</span><br>
+                    <span class="text-blue-400">function</span> <span class="text-yellow-300">additionner</span>(a, b) {<br>
+                    &nbsp;&nbsp;<span class="text-blue-400">return</span> a + b;<br>
+                    }<br><br>
+                    <span class="text-slate-500">// 2. Expression de fonction (function expression)</span><br>
+                    <span class="text-pink-400">const</span> multiplier = <span class="text-blue-400">function</span>(a, b) {<br>
+                    &nbsp;&nbsp;<span class="text-blue-400">return</span> a * b;<br>
+                    };<br><br>
+                    <span class="text-slate-500">// 3. Fonction fléchée (arrow function) — syntaxe moderne</span><br>
+                    <span class="text-pink-400">const</span> diviser = (a, b) => a / b;<br><br>
+                    console.<span class="text-green-400">log</span>(<span class="text-yellow-300">additionner</span>(<span class="text-yellow-300">3</span>, <span class="text-yellow-300">4</span>)); <span class="text-slate-500">// → 7</span>
+                </div>
+            </section>
+
+            <!-- =============================== -->
+            <!-- SECTION 5 : Tableaux            -->
+            <!-- =============================== -->
+            <section class="mb-14">
+                <h3 class="text-2xl font-semibold text-blue-600 mb-5 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-9 h-9 inline-flex items-center justify-center mr-3 text-sm font-bold">5</span>
+                    Tableaux
+                </h3>
+                <p class="mb-4 leading-relaxed text-slate-600">
+                    Un <strong>tableau</strong> est une structure de données qui stocke une collection ordonnée d'éléments dans des cases mémoire consécutives. En JavaScript, les index commencent à <strong>0</strong> (zero-indexed).
+                </p>
+                <div class="bg-slate-800 text-slate-300 p-5 rounded-lg font-mono text-sm shadow-inner leading-relaxed mb-5">
+                    <span class="text-pink-400">const</span> tab = [<span class="text-green-400">"Alice"</span>, <span class="text-green-400">"Bob"</span>, <span class="text-green-400">"Charlie"</span>];<br><br>
+                    tab[<span class="text-yellow-300">0</span>]  <span class="text-slate-500">// → "Alice"   (premier élément, index 0)</span><br>
+                    tab[<span class="text-yellow-300">1</span>]  <span class="text-slate-500">// → "Bob"</span><br>
+                    tab[<span class="text-yellow-300">2</span>]  <span class="text-slate-500">// → "Charlie" (dernier élément, index 2)</span><br>
+                    tab.<span class="text-blue-400">length</span>  <span class="text-slate-500">// → 3 (nombre d'éléments)</span><br><br>
+                    <span class="text-slate-500">// Parcourir un tableau avec une boucle for</span><br>
+                    <span class="text-blue-400">for</span> (<span class="text-pink-400">let</span> i = <span class="text-yellow-300">0</span>; i < tab.<span class="text-blue-400">length</span>; i++) {<br>
+                    &nbsp;&nbsp;console.<span class="text-green-400">log</span>(tab[i]);<br>
+                    }
+                </div>
+                <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                    <p class="font-bold text-red-800 mb-1">🔴 Edge-Case Classique</p>
+                    <p class="text-red-700 text-sm">
+                        <code class="bg-red-100 px-1 rounded">tab[3]</code> dans l'exemple ci-dessus retourne <code class="bg-red-100 px-1 rounded">undefined</code>, pas une erreur. Accéder à un index hors limites est silencieux en JS — c'est un bug difficile à détecter.
+                    </p>
+                </div>
+            </section>
+
+            <!-- =============================== -->
+            <!-- SECTION 6 : Pareto + Récap      -->
+            <!-- =============================== -->
+            <section>
+                <h3 class="text-2xl font-semibold text-blue-600 mb-5 flex items-center">
+                    <span class="bg-blue-100 text-blue-800 rounded-full w-9 h-9 inline-flex items-center justify-center mr-3 text-sm font-bold">6</span>
+                    Loi de Pareto (80/20) Appliquée au Code
+                </h3>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-5 text-slate-700 italic rounded-r-lg mb-6">
+                    "80% des bugs d'un programme proviennent de 20% du code — généralement : les comparaisons de types, les accès aux tableaux hors limites, et les conditions mal évaluées. Maîtrisez ces 20%, et vous gérez 80% des problèmes."
+                </div>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                        <div class="text-blue-600 font-bold mb-1 uppercase text-xs">Priorité 1</div>
+                        <div class="font-bold text-slate-800">Types & Coercition</div>
+                        <div class="text-xs text-slate-500 mt-1">typeof, ===, falsy values</div>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                        <div class="text-blue-600 font-bold mb-1 uppercase text-xs">Priorité 2</div>
+                        <div class="font-bold text-slate-800">Boucles & Conditions</div>
+                        <div class="text-xs text-slate-500 mt-1">break, edge-cases, do...while</div>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                        <div class="text-blue-600 font-bold mb-1 uppercase text-xs">Priorité 3</div>
+                        <div class="font-bold text-slate-800">Fonctions & Tableaux</div>
+                        <div class="text-xs text-slate-500 mt-1">index 0, return, réutilisabilité</div>
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <a href="quiz.html" class="inline-block bg-blue-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-blue-700 hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-blue-200">
+                        Tester mes Connaissances →
+                    </a>
+                </div>
+            </section>
+
         </div>
     </main>
+
+    <footer class="text-center py-10 text-slate-400 text-sm">
+        &copy; 2026 LogicMaster Project - FSSM
+    </footer>
 
 </body>
 </html>
